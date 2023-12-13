@@ -1,0 +1,15 @@
+--Cinext
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY Cinext IS
+PORT(x, y, z : IN BIT;
+		Cin : OUT BIT);
+END;
+
+ARCHITECTURE behav OF Cinext IS
+
+BEGIN
+	Cin <= (not(x) and not(y) and z) or (not(x) and y and not(z));
+END;

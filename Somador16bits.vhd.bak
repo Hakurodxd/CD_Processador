@@ -1,0 +1,27 @@
+--Somador16bits
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Sum6 is
+	port(a0, a1, a2, a3, a4, a5, b0, b1, b2, b3, b4, b5, cin : in bit;
+			R0, R1, R2, R3, R4, R5: out bit);
+end Sum6;
+
+architecture behav of Sum6 is
+
+component Scompleto is
+	port(ci, a, b : in bit;
+			co, s: out bit);
+end component;
+
+signal c1, c2, c3, c4, c5, cf: bit;
+
+begin
+	u1 : Scompleto port map (ci => cin, a => a0, b => b0, co => c1, s => R0);
+	u2 : Scompleto port map (ci => c1, a => a1, b => b1, co => c2, s => R1);
+	u3 : Scompleto port map (ci => c2, a => a2, b => b2, co => c3, s => R2);
+	u4 : Scompleto port map (ci => c3, a => a3, b => b3, co => c4, s => R3);
+	u5 : Scompleto port map (ci => c4, a => a4, b => b4, co => c5, s => R4);
+	u6 : Scompleto port map (ci => c5, a => a5, b => b5, co => cf, s => R5);
+end architecture behav;

@@ -1,0 +1,1 @@
+--Control Unit (maquina de estado que lê, decodifica e executa o comando dando as saidas pro datapath)

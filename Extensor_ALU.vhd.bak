@@ -1,0 +1,33 @@
+--extensor ALU
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY ExtensorALU IS
+PORT(Ain, Bin : in std_logic_vector (15 downto 0);
+		s1, s0 : in std_logic;
+		Aout, Bout, cin : OUT BIT);
+END;
+
+ARCHITECTURE behav OF ExtensorALU IS
+
+component Abext IS
+PORT(Ain, Bin, x, y, z : IN BIT;
+		Aout, Bout : OUT BIT);
+end component;
+
+component Cinext IS
+PORT(x, y, z : IN BIT;
+		Cin : OUT BIT);
+end component;
+
+BEGIN
+	u0: Abext port map (Ain => ai0, Bin => bi0, x => x, y => y, z => z, Aout => ao0, Bout => bo0);
+	u1: Abext port map (Ain => ai1, Bin => bi1, x => x, y => y, z => z, Aout => ao1, Bout => bo1);
+	u2: Abext port map (Ain => ai2, Bin => bi2, x => x, y => y, z => z, Aout => ao2, Bout => bo2);
+	u3: Abext port map (Ain => ai3, Bin => bi3, x => x, y => y, z => z, Aout => ao3, Bout => bo3);
+	u4: Abext port map (Ain => ai4, Bin => bi4, x => x, y => y, z => z, Aout => ao4, Bout => bo4);
+	u5: Abext port map (Ain => ai5, Bin => bi5, x => x, y => y, z => z, Aout => ao5, Bout => bo5);
+	u6: Cinext port map (x => x, y => y, z => z, Cin => cin);
+END;
+

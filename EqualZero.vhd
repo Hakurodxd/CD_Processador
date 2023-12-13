@@ -1,0 +1,3 @@
+--"=0" (verifica se a saida rp é igual a 0 pro jump if 0)
+--fazer um parecido pro jump if overflow so que no ALU
+--(usar o somador junto do PC pra incremento dos jampers)

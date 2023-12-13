@@ -1,0 +1,19 @@
+--decode 2.4
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY Decode IS
+PORT(a1, a0, load : IN BIT;
+	d0, d1, d2, d3 : OUT BIT);
+END;
+
+ARCHITECTURE behav OF Decode IS
+
+BEGIN
+	d0 <= not(a1) and not(a0) and load;
+	d1 <= not(a1) and a0 and load;
+	d2 <= a1 and not (a0) and load;
+	d3 <= a1 and a0 and load;
+END;
+
